@@ -19,7 +19,6 @@ export default {
 }
 .realtime-box{
   position: relative;
-  padding-top: 2rem;
   height: 100%;
   box-sizing: border-box;
 }
@@ -42,20 +41,20 @@ export default {
   line-height: 109px;
 }
 .ticket-box{
-  margin-top: 8%;
+  padding-top: 11rem;
+  padding-bottom: 2rem;
   position: relative;
-  height: 80%;
+  height: 100%;
   box-sizing: border-box;
 }
 
 .meeting-score{
-  padding: 0px 40px 0px 40px;
-  width: 85%;
+  padding: 0px 40px;
+  width: 82%;
   height: 100%;
   box-sizing: border-box;
 }
 .meeting-score-box{
-  margin-top: 2rem;
   border-radius: 2rem;
   background: #fff;
   height: 100%;
@@ -124,10 +123,10 @@ export default {
 
 .meeting-state{
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 2rem;
+  bottom: 2rem;
   width: 15%;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #db9b0e;
   text-align: center;
   vertical-align: bottom;
