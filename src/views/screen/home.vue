@@ -83,7 +83,7 @@ export default {
             infos: res.data.infos
           }
           var img = new Image()
-          img.src = _t.meetingInfo.kcpicurl
+          img.src = _t.meetingInfo.logourl
           img.onload = function () {
             _t.meetingInfo.thumbnail = _t.meetingInfo.logourl
           }

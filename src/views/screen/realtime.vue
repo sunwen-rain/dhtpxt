@@ -91,6 +91,10 @@ export default {
     this.getToken()
 
     this.size = document.documentElement.clientWidth * .15
+
+    window.onbeforeunload = function () {
+      return '投票正在进行中，确认关闭浏览器？'
+    }
   },
   methods: {
     getToken () {
