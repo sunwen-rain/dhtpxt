@@ -24,7 +24,7 @@ export default {
 }
 
 .meeting-top{
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #014999;
   font-weight: bold;
   text-align: center;
@@ -41,7 +41,7 @@ export default {
   line-height: 109px;
 }
 .ticket-box{
-  padding-top: 11rem;
+  padding-top: 8rem;
   padding-bottom: 2rem;
   position: relative;
   height: 100%;
@@ -67,7 +67,7 @@ export default {
 }
 .meeting-question{
   padding: 1rem 2rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   border-bottom: solid 1px #acacac;
   
   
@@ -84,7 +84,7 @@ export default {
 }
 .meeting-options{
   padding-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   width: 50%;
   box-sizing: border-box;

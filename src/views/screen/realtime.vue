@@ -70,7 +70,7 @@ export default {
       isEnded: false,
       countdown: 60,
       cdata: [],
-      yaxis: ['0', '200', '400', '600', '800', '1000'].reverse(),
+      yaxis: ['0%', '20%', '40%', '60%', '80%', '100%'].reverse(),
       xaxis: [],
       size: 200
     }
@@ -203,6 +203,14 @@ export default {
             _t.cdata = res.data.infos.map(t => {
               return t.count
             })
+            var countnum = _t.cdata.reduce(function(p,c) {
+              return p + c
+            })
+            _t.cdata = _t.cdata.map(function(c) {
+              return parseInt(c / countnum * 100) + '%'
+            })
+            console.log(countnum)
+
             let max = _t.getmax(_t.cdata)
             let ystep = 20
             if (max < 150) {
@@ -220,7 +228,7 @@ export default {
             } else if (max < 2500) {
               ystep = 500
             }
-            _t.yaxis = [0, ystep*1, ystep*2, ystep*3, ystep*4, ystep*5].reverse()
+            //_t.yaxis = [0, ystep*1, ystep*2, ystep*3, ystep*4, ystep*5].reverse()
             
             // _t.initChart(data)
           }

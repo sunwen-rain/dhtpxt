@@ -7,7 +7,7 @@
       <span v-for="item in xaxis" :key="item" :style="{'width': 100 / xaxis.length + '%' }">{{item}}</span>
     </div>
     <div class="chart-content">
-      <div class="bar-box" v-for="(item,index) in data" :style="{height: item / total * 100 + '%','width': 100 / xaxis.length + '%',left: 100 / xaxis.length * index + '%'}">
+      <div class="bar-box" v-for="(item,index) in data" :style="{height: item,'width': 100 / xaxis.length + '%',left: 100 / xaxis.length * index + '%'}">
         <div class="bar"></div>  
         <span>{{item}}</span>
       </div>
@@ -104,9 +104,10 @@ export default {
 }
 .bar-box{
   position: absolute;
-  bottom: .2rem;
+  bottom: .1rem;
   width: 20%;
   min-height: 1px;
+  max-height: calc(100% - .1rem);
   z-index: 9;
 }
 .bar{

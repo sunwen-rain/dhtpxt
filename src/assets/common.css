@@ -15,7 +15,9 @@ html, body{
 @media screen and (min-width:640px) and (max-width:719px){html{font-size:13px}}
 @media screen and (min-width:720px) and (max-width:870px){html{font-size:14px}}
 @media screen and (min-width:871px) and (max-width:1028px){html{font-size:16px}}
-@media screen and (min-width:1029px){html{font-size:20px}}
+@media screen and (min-width:1029px) and (max-width:1500px){html{font-size:20px}}
+@media screen and (min-width:1501px) and (max-width:1700px){html{font-size:24px}}
+@media screen and (min-width:1701px){html{font-size:28px}}
 
 img{
   border: 0px;
