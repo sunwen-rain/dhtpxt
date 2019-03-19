@@ -1,3 +1,5 @@
+const CompressionPlugin = require('compression-webpack-plugin')
+
 module.exports = {
   devServer: {
     port: '8082',
@@ -11,5 +13,14 @@ module.exports = {
         }
       }
     }
+  },
+  productionSourceMap: false,
+  configureWebpack: {
+    plugins: [
+      new CompressionPlugin({
+        test: /\.js$|\.css$/i,
+        deleteOriginalAssets: false
+      })
+    ]
   }
 }

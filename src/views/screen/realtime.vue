@@ -14,9 +14,9 @@
             <div class="meeting-question"><p> <img src="../../assets/aq.png" alt=""> {{meetingInfo.questionname}}</p></div>
             <div class="meeting-content">
               <ul class="meeting-options">
-                <li v-for="item in meetingInfo.infos">
-                  <i>{{item.code}}、</i>
-                  <p>{{item.option}}</p>
+                <li v-for="(item,index) in meetingInfo.infos">
+                  <i>{{alloptions[index]}}、</i>
+                  <p>{{item.optioncontent}}</p>
                 </li>
               </ul>
               <div class="echart-box">
@@ -49,7 +49,7 @@
 
 <script>
 import Qs from 'qs'
-import echarts from 'echarts'
+//import echarts from 'echarts'
 import chart from '../../components/chart.vue'
 export default {
   name: 'realtime',
@@ -70,6 +70,7 @@ export default {
       isEnded: false,
       countdown: 60,
       cdata: [],
+      alloptions: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'],
       yaxis: ['0%', '20%', '40%', '60%', '80%', '100%'].reverse(),
       xaxis: [],
       size: 200
@@ -119,11 +120,11 @@ export default {
           var imgTypeIndex = kcpicurl.lastIndexOf('.')
           var thumbnail = kcpicurl.substring(0, imgTypeIndex) + '_small' + kcpicurl.substring(imgTypeIndex)
 
-          var infos = res.data.infos
+          /*var infos = res.data.infos
           infos.forEach(e => {
             e.code = e.optioncontent.substring(0, e.optioncontent.indexOf('.'))
             e.option = e.optioncontent.substring(e.optioncontent.indexOf('.') + 1)
-          })
+          })*/
 
           _t.meetingInfo = {
             meetingcode: res.data.meetingcode,
@@ -136,15 +137,16 @@ export default {
             thumbnail: thumbnail,
             seconds: res.data.seconds,
             qrcodecontent: res.data.qrcodecontent,
-            infos: infos
+            infos: res.data.infos
           }
           _t.countdown = res.data.seconds
 
           
             _t.xaxis = []
-            _t.meetingInfo.infos.forEach(element => {
-              _t.xaxis.push(element.optioncontent.substring(0,1))
-              _t.cdata.push(0)
+            _t.meetingInfo.infos.forEach((element,i) => {
+              //_t.xaxis.push(element.optioncontent.substring(0,1))
+              _t.xaxis.push(_t.alloptions[i])
+              _t.cdata.push('0.00%')
             });
               
 
@@ -207,9 +209,8 @@ export default {
               return p + c
             })
             _t.cdata = _t.cdata.map(function(c) {
-              return parseInt(c / countnum * 100) + '%'
+              return (countnum > 0) ? (c / countnum * 100).toFixed(2) + '%' : '0.00%'
             })
-            console.log(countnum)
 
             let max = _t.getmax(_t.cdata)
             let ystep = 20
@@ -236,7 +237,7 @@ export default {
 
       
     },
-    initChart (data) {
+    /*initChart (data) {
       console.log(data)
       let meetingchart = echarts.init(this.$refs.meetingchart);
       var option = {
@@ -268,7 +269,7 @@ export default {
 
         // 使用刚指定的配置项和数据显示图表。
         meetingchart.setOption(option);
-    },
+    },*/
     getmax (data) {
       let max = data[0]
       for (let i = 1; i < data.length; i++){
@@ -281,6 +282,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

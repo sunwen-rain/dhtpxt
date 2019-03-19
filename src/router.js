@@ -8,29 +8,29 @@ export default new Router({
     {
       path: '/screen',
       name: 'screen',
-      component: () => import('./views/screen/screen.vue'),
+      component: resolve => require(['./views/screen/screen.vue'], resolve),
       children: [
         {
           path: '',
           name: 'home',
-          component: () => import('./views/screen/home.vue')
+          component: resolve => require(['./views/screen/home.vue'], resolve),
         },
         {
           path: 'realtime',
           name: 'realtime',
-          component: () => import('./views/screen/realtime.vue')
+          component: resolve => require(['./views/screen/realtime.vue'], resolve)
         }
       ]
     },
     {
       path: '/mobile',
       name: 'mobile',
-      component: () => import('./views/mobile/meeting.vue')
+      component: resolve => require(['./views/mobile/meeting.vue'], resolve)
     },
     {
       path: '/mobile/meeting',
       name: 'mobile',
-      component: () => import('./views/mobile/meeting.vue')
+      component: resolve => require(['./views/mobile/meeting.vue'], resolve)
     }
   ]
 })

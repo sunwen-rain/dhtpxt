@@ -1,11 +1,6 @@
 <template>
   <router-view></router-view>
 </template>
-<script>
-export default {
-  name: 'screen'
-}
-</script>
 
 <style>
 
@@ -41,8 +36,8 @@ export default {
   line-height: 109px;
 }
 .ticket-box{
-  padding-top: 8rem;
-  padding-bottom: 2rem;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
   position: relative;
   height: 100%;
   box-sizing: border-box;
@@ -124,7 +119,7 @@ export default {
 .meeting-state{
   position: absolute;
   right: 2rem;
-  bottom: 2rem;
+  bottom: 5rem;
   width: 15%;
   font-size: 4rem;
   color: #db9b0e;

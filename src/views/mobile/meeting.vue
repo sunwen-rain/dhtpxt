@@ -21,19 +21,19 @@
       <div class="meeting-area"  v-if="meetingInfo.questionname">
         <dl>
           <dt><p>{{meetingInfo.questionname}}</p></dt>
-          <dd v-for="item in meetingInfo.infos">
+          <dd v-for="(item,index) in meetingInfo.infos">
             <div class="radio-box">
               <div class="radio">
                 <input type="radio" :id="item.optioncode" :value="item.optioncode" v-model="optioncode"><span></span>
               </div>
               <label :for="item.optioncode">
-                <i>{{item.code}}、</i>
-                <span>{{item.option}}</span>
+                <i>{{alloptions[index]}}、</i>
+                <span>{{item.optioncontent}}</span>
               </label>
             </div>
           </dd>
         </dl>
-        <button class="btn" @click="gotoVote" :disabled="isDis">提交</button>
+        <button class="btn" @click="gotoVote" :disabled="isDis || !optioncode">提交</button>
       </div>
     </div>
     
@@ -81,7 +81,8 @@ export default {
       meetingInfo: {},
       msg: '投票活动未开始，请稍后',
       vmsg: '投票已完成，请耐心等待活动结果！',
-      optioncode: ''
+      optioncode: '',
+      alloptions: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N']
     }
   },
   mounted () {
@@ -121,11 +122,11 @@ export default {
             var logourl = res.data.logourl
             var imgTypeIndex = logourl.lastIndexOf('.')
             var thumbnail = logourl.substring(0, imgTypeIndex) + '_small' + logourl.substring(imgTypeIndex)
-            var infos = res.data.infos
+            /*var infos = res.data.infos
             infos.forEach(e => {
               e.code = e.optioncontent.substring(0, e.optioncontent.indexOf('.'))
               e.option = e.optioncontent.substring(e.optioncontent.indexOf('.') + 1)
-            })
+            })*/
 
             _t.meetingInfo = {
               meetingcode: res.data.meetingcode,
@@ -275,6 +276,7 @@ export default {
 .meeting-area dd label{
   position: relative;
   padding-left: 1.5rem;
+  line-height: 1.5;
 }
 .meeting-area dd label i{
   position: absolute;
@@ -368,7 +370,8 @@ export default {
 }
 .dialog-box img{
   margin-top: 1rem;
-  width: 80%;
+  max-width: 80%;
+  max-height: 50%;
 }
 .dialog-box p{
   font-size: 1.6rem;

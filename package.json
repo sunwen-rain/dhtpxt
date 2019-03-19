@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "echarts": "^4.1.0",
     "element-ui": "^2.6.1",
     "vue": "^2.6.6",
     "vue-qriously": "^1.1.1",
@@ -21,6 +20,7 @@
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "babel-eslint": "^10.0.1",
+    "compression-webpack-plugin": "^2.0.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
