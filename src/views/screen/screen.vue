@@ -148,7 +148,6 @@
 }
 
 .no-meeting{
-  color: #fff;
   font-size: 2rem;
   text-align: center;
   padding-top: 15rem;
